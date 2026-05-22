@@ -29,9 +29,6 @@ graph TD
     SDK -.-> FB[Firebase / CloudSave]
     SDK -.-> ADS[IronSource LevelPlay]
     SDK -.-> IAP[Unity IAP]
-    
-    style sublayer1 fill:#f9f,stroke:#333,stroke-width:2px
-    style ECS fill:#bbf,stroke:#333,stroke-width:2px
 ```
 
 ### Why EcsLite + Zenject?
