@@ -173,6 +173,19 @@ SDKs are wrapped inside standalone Services (`CloudSaveManager`, `LevelPlayAdSer
 
 ---
 
+## 4. 🛠️ CUSTOM TOOLING & PIPELINES (The Tech Lead Mindset)
+
+A true Senior/Lead Engineer doesn't just write game logic; they build tools that multiply the entire team's productivity. In Curve Dash, I developed several advanced Custom Editor tools from scratch to streamline the workflow for Game Designers:
+
+- **Master RPG Studio Window:** A comprehensive, centralized custom window (`MasterRPGStudioWindow.cs` - 42KB) that acts as the control panel for all game balancing and data management.
+- **Skill Constellation Editor:** A visual node-based editor (`CurveDashSkillConstellationWindow.cs`) built with Unity's Editor tools to allow designers to create and balance complex skill trees intuitively without touching code.
+- **Inventory & Item Inspectors:** Custom inspectors (`CurveDashInventoryEditorUtility.cs`, `WeaponDataInspector.cs`) that validate data integrity in real-time, preventing designers from entering invalid stats or breaking the game.
+
+> [!NOTE]
+> By investing time in these custom workflows, I eliminated data-entry errors, drastically reduced iteration time, and empowered the design team to tweak the game without engineering support.
+
+---
+
 ## 🎯 THE TAKEAWAY
 
 > [!WARNING]
