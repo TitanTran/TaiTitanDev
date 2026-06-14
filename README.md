@@ -186,14 +186,51 @@ A true Senior/Lead Engineer doesn't just write game logic; they build tools that
 
 ---
 
+## 🧩 BONUS CASE STUDY: TETRIS 3D - MASTERING ALGORITHMS & MVC
+
+If Curve Dash demonstrates my ability to squeeze every drop of performance using Data-Oriented Design (ECS), **Tetris 3D** showcases my mastery over **Object-Oriented Programming (OOP), Clean Code, and Complex Algorithms**.
+
+<div align="center">
+  <a href="https://youtu.be/549IfNUVOz0?si=VKSjAYIHSceJCdJw">
+    <img src="https://img.youtube.com/vi/549IfNUVOz0/maxresdefault.jpg" alt="Tetris 3D Gameplay" width="800"/>
+  </a>
+  <br>
+  <em>(Click the image above to watch the Tetris 3D gameplay demonstration)</em>
+</div>
+<br>
+
+> [!NOTE]
+> **WHY THIS MATTERS**
+> Tetris 3D is a highly algorithmic game requiring 3D matrix manipulation, ghost block projection, and strict game state flows. Applying ECS here would be overkill; instead, I implemented a robust **Model-View-Controller (MVC)** architecture driven by **Zenject Signals** and a **Finite State Machine (FSM)**.
+
+### 1. The MVC + Event-Driven Architecture
+I strictly separated the business logic from the Unity presentation layer:
+- **Models:** Hold the 3D grid data, current piece shape, and score.
+- **Views:** Only responsible for rendering Unity GameObjects (blocks) and playing VFX/Audio. They are completely dumb and hold no logic.
+- **Controllers:** Process input, manipulate the Model, and broadcast events.
+
+Instead of tight coupling, Controllers and Views communicate purely via **Zenject Signals** (Event-Driven Architecture).
+```csharp
+// Example: The Controller broadcasts a signal, and the View listens and updates itself.
+_signalBus.Fire(new LinesClearedSignal(clearedLinesCount));
+```
+
+### 2. Finite State Machine (FSM)
+Managing states (MainMenu -> Playing -> Paused -> GameOver) using `if/else` flags is a nightmare. I implemented a robust FSM to handle state transitions cleanly, ensuring that game logic (like block falling) immediately halts when the state changes to `Paused`.
+
+### 3. Algorithmic Heavy-Lifting
+- **3D Matrix Rotations:** Implementing mathematical rotations for 3D blocks without relying on Unity's physics engine.
+- **Ghost Block Projection:** Using real-time matrix simulations to accurately project where the 3D block will land, completely decoupled from the actual falling block's state.
+
+---
+
 ## 🎯 THE TAKEAWAY
 
 > [!WARNING]
 > *I don't write code for computers to understand; I design systems for other engineers to read, maintain, and scale for the next 5 years.*
 
-**Curve Dash** proves my ability to architect a product from A to Z:
-1. **Data-Oriented Design** over blind Object-Oriented Design.
-2. **Absolute Memory Control** for Mobile Devices.
-3. **Designed for Scalability**, not just designed to "make it work for now".
-
-*(💡 Hint: You can attach a short 3-5 second GIF showing Gameplay or the Unity Profiler demonstrating 0 bytes GC/frame right below this section to make it absolutely convincing!)*
+Between **Curve Dash** and **Tetris 3D**, I have proven my versatility as a Senior Engineer:
+1. **Performance & Data-Oriented Design (ECS)** when scalability and CPU efficiency are paramount.
+2. **Clean Architecture (MVC & Event-Driven OOP)** when complex algorithmic business logic dictates the game flow.
+3. **Custom Editor Tooling** to accelerate team pipelines and eliminate designer bottlenecks.
+4. **Absolute Control** over the codebase across entirely different architectural paradigms.
